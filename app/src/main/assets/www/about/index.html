@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="msapplication-tap-highlight" content="no" />
+    <title data-l10n-id="turbojet"></title>
+    <meta charset="utf-8" />
+    <meta http-Equiv="Cache-Control" Content="no-cache" />
+    <meta http-Equiv="Pragma" Content="no-cache" />
+    <meta http-Equiv="Expires" Content="0" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <script type="text/javascript">
+        var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1;
+        if (isAndroid) {
+            document.write('<meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height"/>');
+        } else {
+            document.write('<meta name="viewport" content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height, viewport-fit=cover" />');
+        }
+    </script>
+
+    <meta http-equiv="Content-Security-Policy" content=" frame-src * gap://ready 'self';
+    default-src * 'self' gap: file://* *;connect-src * blob: data:; style-src *
+    'unsafe-inline'; script-src * 'unsafe-eval' 'unsafe-inline'; img-src data: *">
+    <meta http-equiv="Access-Control-Allow-Origin" content="https" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!-- jquery mobile -->
+    <link rel="stylesheet" href="jqm/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" type="text/css" href="css/themes/tj_theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/themes/tj_theme_custom.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobipick.css" />
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
+
+    <script>
+        $(document).on("mobileinit", function () {
+            $.mobile.hashListeningEnabled = false;
+            $.mobile.pushStateEnabled = false;
+            $.mobile.changePage.defaults.changeHash = false;
+            $.mobile.ignoreContentEnabled = true;
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="main_style.css"/>
+
+
+</head>
+<body style="-webkit-transform: translateZ(0px);" data-tap-toggle="false" data-position="fixed">
+
+    <div hidden data-role="main" class="ui-content" style="padding:0px 0px 0px 0px;">
+        <div class="iframe_scrollee">
+            <iframe name="iframe" id="iframe_video" src="https://www.turbojet.com.hk/tc/mobvideo.aspx?v=20230814144028?rand=7176430" style="border: 0; width:100%; height:100%; background-color:white;" sandbox="allow-same-origin allow-popups allow-forms allow-top-navigation allow-scripts">
+                Your browser doesn't support iframes.
+            </iframe>
+        </div>
+    </div>
+
+    <video id="my-video" class="video-js" controls preload="auto" width="100%" height="264" data-setup='{}'>
+        <source src="tb7.mp4" type="video/mp4">
+    </video>
+    <p> Turbojet promote  https://www.turbojet.com.hk/tc/mobvideo.aspx?v=20230814144028?rand=7176430</p>
+</body>
+</html>

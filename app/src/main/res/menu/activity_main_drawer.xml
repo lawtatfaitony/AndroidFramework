@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_extend_home"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_gallery" >
+            <!--Sub menu-->
+            <menu android:id="@+id/menu_submenu" >
+                <item
+                    android:id="@+id/nav_home"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="@string/menu_home"></item>
+
+                <item android:id="@+id/nav_home_login" android:title="@string/action_login_label"  android:icon="@drawable/ic_menu_camera" />
+                <item android:id="@+id/green" android:title="Ticket Booking"/>
+            </menu>
+        </item>
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_gallery">
+
+            <menu>
+                <group android:checkableBehavior = "none">
+                    <item android:id="@+id/colour_blue" android:title="蓝色"/>
+                    <item android:id="@+id/colour_green" android:title="绿色"/>
+                    <item android:id="@+id/colour_red" android:title="红色"/>
+                    <item android:id="@+id/colour_yellow" android:title="黄色"/>
+                </group>
+            </menu>
+
+        </item>
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_slideshow" />
+
+        <item
+            android:id="@+id/nav_system_setting"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_btn_setting" />
+    </group>
+</menu>

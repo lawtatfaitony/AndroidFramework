@@ -1,0 +1,270 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height: auto;
+    min-height: 100%;
+    margin:0px;
+    padding:0px;
+    /*text-transform:uppercase;*/
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+/*20170216*/
+/* Style the tab */
+div.payment_tab {
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+/* Style the links inside the tab */
+div.payment_tab a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding-top :10px;
+    padding-bottom:10px;
+    width : 50%;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    background-color: #ddd ;
+    color: #ccc ;
+    border-bottom: 5px solid rgb(153, 153, 153);
+}
+
+/* Change background color of links on hover */
+div.payment_tab a:hover {
+    background-color: #ddd;
+    color: #ccc ;
+}
+
+/* Create an active/current tablink class */
+div.payment_tab a:focus, .active {
+    background-color: #28353b;
+    color: white;
+    /*border-bottom: 5px solid yellow;*/
+}
+
+/* Style the tab content */
+.tabcontent {
+
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: white;
+}
+.tabcontent_Flex {
+
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+
+.red_btn{
+    background-color:#D62828 !important;
+    color:#FFF !important;
+    font-size:20px;
+    border:none;
+    padding:none;
+    margin:none;
+    height:50px;
+    text-align:center;
+    vertical-align:bottom;
+    padding-top:10px;
+    text-decoration: none !important;
+}
+
+
+.bounce_up {
+    -webkit-animation: bounce_up 2s linear infinite;
+    -moz-animation: bounce_up 2s linear infinite;
+    -o-animation: bounce_up 2s linear infinite;
+    animation: bounce_up 2s linear infinite;
+}
+
+@-webkit-keyframes bounce_up {
+    from{margin-top: 10px;opacity: 0;}
+    to{margin-top:0;opacity: 1;}
+}
+@-moz-keyframes bounce_up {
+    from{margin-top: 10px;opacity: 0;}
+    to{margin-top:0;opacity: 1;}
+}
+@-o-keyframes bounce_up {
+    from{margin-top: 10px;opacity: 0;}
+    to{margin-top:0;opacity: 1;}
+}
+@keyframes bounce_up {
+    from{margin-top: 10px;opacity: 0;}
+    to{margin-top:0;opacity: 1;}
+}
+.cbv_switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 23px;
+}
+
+.cbv_switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #5ced75;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #5ced75;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(21px);
+  -ms-transform: translateX(21px);
+  transform: translateX(21px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
