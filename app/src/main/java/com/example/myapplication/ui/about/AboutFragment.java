@@ -12,10 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.Config;
 import com.example.myapplication.R;
-import com.example.myapplication.ui.home.HomeViewModel;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,15 +59,15 @@ public class AboutFragment extends Fragment {
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-        Log.e(TAG, "func::onCreate:  ----  > onCreate ");
-    }
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        if (getArguments() != null) {
+//            mParam1 = getArguments().getString(ARG_PARAM1);
+//            mParam2 = getArguments().getString(ARG_PARAM2);
+//        }
+//        Log.e(TAG, "func::onCreate:  ----  > onCreate ");
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -76,26 +77,20 @@ public class AboutFragment extends Fragment {
         Log.d(TAG, "func::onCreateView:  ----  > inflater = "+ inflater.toString());
         Log.e(TAG, "func::onCreateView:  ----  > inflater = "+ inflater.toString());
         Log.v(TAG, "func::onCreateView:  ----  > inflater = "+ inflater.toString());
-//
-//        // Inflate the layout for this fragment
-//
-//        View root = inflater.inflate(R.layout.fragment_about, container, false);
-//
-//        WebView webView = root.findViewById(R.id.webView1);
-//        webView.loadUrl(Config.MACAO_ABOUT);
-//        return root;
-//
-//        //return inflater.inflate(R.layout.fragment_about, container, false);
+        Toast.makeText(getContext().getApplicationContext(), "onCreateView welcome", Toast.LENGTH_LONG).show();
 
         aboutViewModel = ViewModelProviders.of(this).get(AboutViewModel.class);
         View root = inflater.inflate(R.layout.fragment_about, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
+        final TextView textView = root.findViewById(R.id.text_about);
         aboutViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
         });
+
+        WebView webView = root.findViewById(R.id.webView1);
+        webView.loadUrl(Config.MACAO_ABOUT);
         return root;
     }
 }

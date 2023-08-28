@@ -33,7 +33,9 @@
                     <item android:id="@+id/colour_blue" android:title="蓝色"/>
                     <item android:id="@+id/colour_green" android:title="绿色"/>
                     <item android:id="@+id/colour_red" android:title="红色"/>
-                    <item android:id="@+id/colour_yellow" android:title="About"/>
+                    <item
+                        android:id="@+id/nav_about"
+                        android:title="@string/about" />
                 </group>
             </menu>
 
