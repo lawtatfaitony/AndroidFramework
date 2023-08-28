@@ -8,14 +8,17 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="settings">設置</string>
 
+    <!--PUBLIC-->
+    <string name="comfirm1">確定</string>
+    <string name="cancel1">取消</string>
     <string name="return1">返回</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_btn_setting">系统設置</string>
+    <string name="about">About</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -37,5 +40,7 @@
     <string name="Follow_the_system">跟隨系統</string>
     <string name="menu_lang_setting">系統設置</string>
     <string name="menu_home_login">Login</string>
+    <string name="input_cloud_url">Cloud Url/</string>
+    <string name="input_cloud_url_tips">請輸入雲端URL</string>
 
 </resources>

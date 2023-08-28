@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Config;
 import com.example.myapplication.R;
 
 public class SlideshowFragment extends Fragment {
@@ -37,7 +38,7 @@ public class SlideshowFragment extends Fragment {
         });
 
         WebView webView = root.findViewById(R.id.webView1);
-        webView.loadUrl("file:///android_asset/www/about/index.html");
+        webView.loadUrl(Config.PLAY_TJ_VIDEO_FILE);
 
         return root;
     }

@@ -8,6 +8,8 @@
     <string name="settings">Settings</string>
 
     <!--PUBLIC-->
+    <string name="comfirm1">Comfirm</string>
+    <string name="cancel1">Cancel</string>
     <string name="return1">return</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -16,7 +18,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_btn_setting">System Setting</string>
-
+    <string name="about">About</string>
     <string name="lan_chinese">Chinese</string>
     <string name="lan_en">English</string>
     <string name="text_content">Hello World!</string>
@@ -37,4 +39,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="action_login_label">"Login"</string>
     <string name="menu_home_login">Login</string>
+    <string name="input_cloud_url">Cloud Url/</string>
+    <string name="input_cloud_url_tips">Please input the Cloud Url</string>
+
 </resources>

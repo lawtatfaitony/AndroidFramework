@@ -3,11 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.myapplication.ui.setting.SettingFragment">
+    tools:context=".ui.about.AboutFragment">
+
+    <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/text_setting"
+        android:id="@+id/text_about"
         android:layout_width="match_parent"
+        android:text = "this is blank fragant"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -16,11 +19,8 @@
         android:textSize="20sp"
         android:gravity="center_horizontal" />
 
-    <Button
-        android:id="@+id/btn_save_cloud_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/input_cloud_url" />
-
-
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>

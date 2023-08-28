@@ -26,10 +26,10 @@
 
             <menu>
                 <group android:checkableBehavior = "none">
-                    <item android:id="@+id/colour_blue" android:title="蓝色"/>
-                    <item android:id="@+id/colour_green" android:title="绿色"/>
-                    <item android:id="@+id/colour_red" android:title="红色"/>
-                    <item android:id="@+id/colour_yellow" android:title="黄色"/>
+                    <item android:id="@+id/colour_blue" android:icon="@drawable/ic_menu_camera" android:title="蓝色"/>
+                    <item android:id="@+id/colour_green" android:icon="@drawable/ic_menu_camera" android:title="绿色"/>
+                    <item android:id="@+id/colour_red" android:icon="@drawable/ic_menu_camera" android:title="红色"/>
+                    <item android:id="@+id/macao_about" android:icon="@drawable/ic_menu_camera" android:title="@string/about"/>
                 </group>
             </menu>
 
