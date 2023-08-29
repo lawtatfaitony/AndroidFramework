@@ -18,6 +18,7 @@
                     android:title="@string/menu_home"></item>
 
                 <item android:id="@+id/nav_home_login" android:title="@string/action_login_label"  android:icon="@drawable/ic_menu_camera" />
+
                 <item android:id="@+id/green" android:title="Ticket Booking"/>
             </menu>
         </item>
@@ -34,7 +35,7 @@
                     <item
                         android:id="@+id/aboutFragment"
                         android:icon="@drawable/ic_menu_camera"
-                        android:title="@string/about" />
+                        android:title="@string/about"  />
                 </group>
             </menu>
 

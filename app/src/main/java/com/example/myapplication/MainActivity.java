@@ -14,11 +14,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.myapplication.language.LanguageUtils;
+import com.example.myapplication.ui.gallery.GreenPageFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -58,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
     }
 
     /**
@@ -128,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).setIcon(R.mipmap.ic_launcher_logo_round);
                 builder.show();
+                break;
+            case R.id.menu_item_green:
                 break;
         }
         return super.onOptionsItemSelected(item);

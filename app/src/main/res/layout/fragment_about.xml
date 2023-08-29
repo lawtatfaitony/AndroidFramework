@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/text_about"
         android:layout_width="match_parent"
-        android:text = "this is blank fragant"
+        android:text = "this is blank fragment"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"

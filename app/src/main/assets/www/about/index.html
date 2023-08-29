@@ -1,207 +1,64 @@
-
-
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1,width=device-width" />
+<head>
+    <meta name="msapplication-tap-highlight" content="no" />
+    <title data-l10n-id="turbojet"></title>
+    <meta charset="utf-8" />
+    <meta http-Equiv="Cache-Control" Content="no-cache" />
+    <meta http-Equiv="Pragma" Content="no-cache" />
+    <meta http-Equiv="Expires" Content="0" />
+    <meta name="format-detection" content="telephone=no" />
 
-<link rel="stylesheet" type="text/css" href="https://www.turbojet.com.hk/css/mainforpromotion.css" />
-<link type="text/css" rel="stylesheet" href="https://www.turbojet.com.hk/css/general.css">
-<link type="text/css" rel="stylesheet" href="https://www.turbojet.com.hk/css/promotions_template.css">
-<script type="text/javascript" src="https://www.turbojet.com.hk/scripts/jquery.js"></script>
-<script type="text/javascript">
-    $().ready(function(){
-      /* $('.list_content a').eq(0).html($('.list_content a').eq(0).html().replace('50th','50<sup>th</sup>'));
-      $('.list_content').eq(0).css({'margin-top':'5px'});*/
-      c_50th();
-
-      $('a').filter(function () {
-            return $(this).text() === "www.turbojet.com.hk";
-      }).contents().unwrap();
-
-      var isIE = ((window.navigator.userAgent.indexOf('MSIE ') > -1)|| (window.navigator.userAgent.match(/Trident.*rv\:11\./)!=null));
-        $('.promoOff').click(function () {
-          //close action
-          $('#overlay').css({'display':'none'});
-        });
-/*
-        $('.menu_link').click(function (event) {
-          event.preventDefault();
-          $('#ImgSrc').attr('src',$(event.target).parent().attr('href'));
-
-          if (isIE==false){
-             $('.promoOff').css({'top':'1%','right':'0%'});
-           }
-          //close action
-          $('#overlay').css({'display':'block'});
-        });
-*/
-    });
-
-    var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-    var eventer = window[eventMethod];
-    var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-
-    eventer(messageEvent,function(e){
-      if(window.location.href.includes("macau_cruise_schedule")){
-        var data = JSON.parse(e.data);
-        console.log(parseInt(data.version));
-        if(data.request == "mc_schedule"){
-          //this message is for page of macau cruise schedule
-          if(parseInt(data.version.replace("android","").replace("ios","")) >= 20191111){
-            if(data.version.includes("android")){
-              document.getElementById("mc_map").onclick = function(){
-                //window.location.replace(data.url.split("\\/").join("/"));
-                window.open(data.url.split("\\/").join("/"),'_system','toolbar=no, location=no, hardwareback=no, EnableViewPortScale=yes');
-              }
-            }else{
-              document.getElementById("mc_map").onclick = function(){
-                window.location.replace(data.url.split("\\/").join("/"));
-              }
-            }
-          }
+    <script type="text/javascript">
+        var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1;
+        if (isAndroid) {
+            document.write('<meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height"/>');
+        } else {
+            document.write('<meta name="viewport" content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height, viewport-fit=cover" />');
         }
-      }
-    },false);
+    </script>
+
+    <meta http-equiv="Content-Security-Policy" content=" frame-src * gap://ready 'self';
+    default-src * 'self' gap: file://* *;connect-src * blob: data:; style-src *
+    'unsafe-inline'; script-src * 'unsafe-eval' 'unsafe-inline'; img-src data: *">
+    <meta http-equiv="Access-Control-Allow-Origin" content="https" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!-- jquery mobile -->
+    <link rel="stylesheet" href="jqm/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" type="text/css" href="css/themes/tj_theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/themes/tj_theme_custom.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobipick.css" />
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
+
+    <script>
+        $(document).on("mobileinit", function () {
+            $.mobile.hashListeningEnabled = false;
+            $.mobile.pushStateEnabled = false;
+            $.mobile.changePage.defaults.changeHash = false;
+            $.mobile.ignoreContentEnabled = true;
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="main_style.css"/>
 
 
-    function c_50th(){
-      $('.list_content a').each(function(i){
-       var have_th = $(this).html().indexOf("50th");
-        if(have_th > 1){
-          $(this).html($(this).html().replace('50th','50<sup>th</sup>'));
-          $(this).parent(".list_content").css({'margin-top':'5px'});
-        }
-     });
+</head>
+<body style="-webkit-transform: translateZ(0px);" data-tap-toggle="false" data-position="fixed">
 
-    }
-
- </script>
-
-<style type="text/css">
-html{
-/*
-    -moz-filter: grayscale(100%) !important;
-    -webkit-filter: grayscale(100%) !important;
-    -ms-filter: grayscale(100%) !important;
-    -o-filter: grayscale(100%) !important;
-    filter: gray !important;
-    filter: grayscale(100%) !important;
-*/
-}
-</style>
-
-<style type="text/css">
-  body{
-    padding-top:10px;
-    padding-left:10px;
-     padding-right:10px;
-  }
-
-  ul{
-  padding-left: 17px;
-}
-
-#overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.5);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);
-    z-index: 499;
-/*    cursor: pointer;*/
-}
-#promo img{
-    margin: auto;
-    height: auto;
-    display: block;
-    width: 100%;
-    position: relative;
-    /*box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
-    border:5px solid #fff;
-
-}
-#promo{
-    position: fixed;
-    width: 90%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-.promoOff{
-    font-size: 2em;
-    cursor: pointer;
-    color:red;
-    z-index: 500;
-    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-    text-shadow: #fff 2px 0 0 0.1, #fff -2px 0 0 0.1,#fff 0 2px 0 0.1,#fff 0 -2px 0 0.1,#fff 1px 1px 0.1,#fff -1px -1px 0 0.1,#fff 1px -1px 0 0.1, #fff -1px 1px 0.1;      /* for IE 10+*/
-    float:right;
-    position: fixed;
-    }
-
-</style>
-
-<body>
-
-
-
-
-<div style="width: 100%;">
-    <h1>澳門海上遊</h1>
-
-    <p><img src="https://www.turbojet.com.hk/media/585042/aboutus.jpg" width="100%" height="" alt="macau_cruise" style="border: 2px solid #eeeeee;"/></p>
-
-    <p style="color: #844bab; font-weight: bold; font-size: medium;">
-        關於我們</p>
-
-    <p style="font-size: small;">
-        依水相連的澳門，由半島、氹仔及路環組成，位處珠三角西岸，環抱美麗的南中國海，自古以來是國家南方的門戶城市。自葡萄牙人於16世紀中葉來澳定居，四百多年來中西文化在澳門交匯融合。隨着回歸後，特區經濟趨多元發展，成為國際旅遊城市，中西古今風貌薈萃，交織出獨特醉人的城市景觀。</p>
-
-    <p style="font-size: small;">
-        自二零一五年底，中央政府明確澳門水域管理範圍後，為發展本澳海上觀光消閒產品提供了重要的契機。全新成立的「澳門海上遊」，藉利用母公司信德中旅船務管理(澳門)有限公司豐富的海上客運經驗，以及掌握區內旅遊發展動態的優勢，致力為澳門度身訂造一個具本土特色的海上旅遊消閒產品，讓旅客及本澳市民擁有一個獨特的遊澳消閒體驗，促進特區建設世界旅遊消閒中心。</p>
-
-    <p style="font-size: small;">
-        「澳門海上遊」結合「海上+陸上」觀光模式，路線連接澳門半島、氹仔及路環三個地點，為愛好深度旅遊的人士，開闢一條海陸結合的旅遊路線，讓他們先從海上遠眺澳門景觀，再親身於陸上遊走各個名勝景點，深入體驗城市多元獨特的風貌。</p>
-
-    <p style="font-size: small;">
-        在約三十至四十五分鐘的海上旅程中，乘客可以將氹仔、半島、路環，以至橫琴沿線彼岸的名勝及醉人景致盡收眼前。從世遺名勝古蹟,媽閣廟、東望洋炮台、主教山，到近代旅遊景點,
-        澳門科學館、觀音蓮花苑、澳門旅遊塔、路氹多個大型綜合旅遊娛樂項目，以至區內大型基建或設施,本澳三條跨海大橋、輕軌鐵路系統、澳門大學橫琴校園，從海上的視角，親身感受國際都會的動感魅力。</p>
-
-    <p style="font-size: small;">
-        除觀光之外，「海上澳門遊」亦可配合進行多元化的水上消閒活動，例如觀賞煙花、親友或職場聯誼、遊學團、生態導賞團等等，適合不同人士，包括團體旅客、商務會展旅客、本澳市民、教學團體等租用。</p>
-
-    <p style="color: #844bab; font-weight: bold; font-size: medium;">
-        觀光船隊</p>
-
-    <p style="font-size: small;">
-        別於一般的客輪，觀光船是一艘滿載文化的小船，由內至外向世界說好澳門故事。全新購置的觀光船以時尚的銀色幻彩流線型外殼示人，船隊-「氹仔一號」及「路環一號」船艙分別以「澳門古今景點」、「中西文化交融」元素的插畫佈置，奪目的色彩營造輕鬆遊覽氛圍，突出澳門動感之都的魅力。</p>
-
-    <p style="color: #844bab; font-weight: bold; font-size: medium;">
-        船隊尺寸及規格</p>
-
-    <ul>
-        <li style="font-size: small;">長度：16.5米</li>
-
-        <li style="font-size: small;">濶度：4.4米</li>
-
-        <li style="font-size: small;">座位：43個</li>
-    </ul>
-
-    <br />
-    <p style="color: #844bab; font-weight: bold; font-size: medium;">
-        設施</p>
-
-    <p style="font-size: small;">免費WiFi 上網、電視及視聽系統</p>
-</div>
-<div id="overlay">
-    <div id="promo">
-
-        <img id="ImgSrc" src=""></img>
-        <span class="promoOff">&#10062;&#xFE0E;</span>  <!--solid 10060-->
+<div hidden data-role="main" class="ui-content" style="padding:0px 0px 0px 0px;">
+    <div class="iframe_scrollee">
+        <iframe name="iframe" id="iframe_video" src="https://www.turbojet.com.hk/tc/mobvideo.aspx?v=20230814144028?rand=7176430" style="border: 0; width:100%; height:100%; background-color:white;" sandbox="allow-same-origin allow-popups allow-forms allow-top-navigation allow-scripts">
+            Your browser doesn't support iframes.
+        </iframe>
     </div>
 </div>
-</html>
-</body>
 
+<video id="my-video" class="video-js" controls preload="auto" width="100%" height="264" data-setup='{}'>
+    <source src="tb7.mp4" type="video/mp4">
+</video>
+<p> Turbojet promote  https://www.turbojet.com.hk/tc/mobvideo.aspx?v=20230814144028?rand=7176430</p>
+</body>
+</html>

@@ -91,8 +91,7 @@ public class AboutFragment extends Fragment {
         });
 
         WebView webView = root.findViewById(R.id.webView1);
-        //webView.loadUrl(Config.MACAO_ABOUT);
-        webView.loadUrl("file:///android_asset/www/about/index.html");
+        webView.loadUrl(Config.MACAO_ABOUT);
         return root;
     }
 }
