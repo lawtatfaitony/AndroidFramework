@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <!--改用 activity_main_and_sub_menu.xml-->
+
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_extend_home"

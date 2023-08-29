@@ -13,12 +13,12 @@
             <menu android:id="@+id/menu_submenu" >
                 <group android:checkableBehavior="single" android:menuCategory="secondary">
                     <item
-                        android:id="@+id/nav_home"
+                        android:id="@+id/nav_home123"
                         android:icon="@drawable/ic_menu_camera"
                         android:title="@string/menu_home"></item>
 
                     <item android:id="@+id/nav_home_login" android:title="@string/action_login_label"  android:icon="@drawable/ic_menu_camera" />
-                    <item android:id="@+id/green123" android:title="Ticket Booking"  android:icon="@drawable/ic_menu_camera"/>
+                    <item android:id="@+id/nav_gallery2" android:title="Ticket Booking"  android:icon="@drawable/ic_menu_camera"/>
                 </group>
             </menu>
         </item>
@@ -33,9 +33,7 @@
                     <item android:id="@+id/colour_blue" android:title="蓝色"/>
                     <item android:id="@+id/colour_green" android:title="绿色"/>
                     <item android:id="@+id/colour_red" android:title="红色"/>
-                    <item
-                        android:id="@+id/nav_about"
-                        android:title="@string/about" />
+                    <item android:id="@+id/nav_about"  android:title="@string/about" />
                 </group>
             </menu>
 

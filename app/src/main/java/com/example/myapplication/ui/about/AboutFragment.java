@@ -77,7 +77,8 @@ public class AboutFragment extends Fragment {
         Log.d(TAG, "func::onCreateView:  ----  > inflater = "+ inflater.toString());
         Log.e(TAG, "func::onCreateView:  ----  > inflater = "+ inflater.toString());
         Log.v(TAG, "func::onCreateView:  ----  > inflater = "+ inflater.toString());
-        Toast.makeText(getContext().getApplicationContext(), "onCreateView welcome", Toast.LENGTH_LONG).show();
+
+        Toast.makeText(getContext().getApplicationContext(), "AboutFragment onCreateView welcome", Toast.LENGTH_LONG).show();
 
         aboutViewModel = ViewModelProviders.of(this).get(AboutViewModel.class);
         View root = inflater.inflate(R.layout.fragment_about, container, false);
@@ -90,7 +91,8 @@ public class AboutFragment extends Fragment {
         });
 
         WebView webView = root.findViewById(R.id.webView1);
-        webView.loadUrl(Config.MACAO_ABOUT);
+        //webView.loadUrl(Config.MACAO_ABOUT);
+        webView.loadUrl("file:///android_asset/www/about/index.html");
         return root;
     }
 }

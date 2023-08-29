@@ -21,7 +21,6 @@
         android:background="#5D9A94"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-
         tools:srcCompat="@drawable/ic_launcher_foreground"
         tools:visibility="visible" />
 
