@@ -1,64 +1,116 @@
+
+
+
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="msapplication-tap-highlight" content="no" />
-    <title data-l10n-id="turbojet"></title>
-    <meta charset="utf-8" />
-    <meta http-Equiv="Cache-Control" Content="no-cache" />
-    <meta http-Equiv="Pragma" Content="no-cache" />
-    <meta http-Equiv="Expires" Content="0" />
-    <meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script type="text/javascript">
-        var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1;
-        if (isAndroid) {
-            document.write('<meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height"/>');
-        } else {
-            document.write('<meta name="viewport" content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height, viewport-fit=cover" />');
+<style type="text/css">
+html{
+/*
+    -moz-filter: grayscale(100%) !important;
+    -webkit-filter: grayscale(100%) !important;
+    -ms-filter: grayscale(100%) !important;
+    -o-filter: grayscale(100%) !important;
+    filter: gray !important;
+    filter: grayscale(100%) !important;
+*/
+}
+</style>
+
+<style type="text/css">
+body {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-family: Arial,"SimHei";
+}
+  h4{
+    color:#4F4F4D;
+    }
+
+  h3{
+    color: #c41d2a;
+    }
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script language="javascript">
+  $(document).ready(function(){
+
+     $('.videos a').each(function(i){
+        if($(this).attr('href')!=''){
+          $(this).css({'display':'none'});
+//          alert($(this).attr('href'));
+          $('.videos').append("<h4>" + $(this).text() + "</h4><iframe height='315' width='560' src='" + $(this).attr('href') +  "'frameborder='0' allowfullscreen ui_controls='1'></iframe><br />");
+          $(this).parent().detach();
+
         }
-    </script>
+     });
 
-    <meta http-equiv="Content-Security-Policy" content=" frame-src * gap://ready 'self';
-    default-src * 'self' gap: file://* *;connect-src * blob: data:; style-src *
-    'unsafe-inline'; script-src * 'unsafe-eval' 'unsafe-inline'; img-src data: *">
-    <meta http-equiv="Access-Control-Allow-Origin" content="https" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <!-- jquery mobile -->
-    <link rel="stylesheet" href="jqm/jquery.mobile-1.4.5.css">
-    <link rel="stylesheet" type="text/css" href="css/themes/tj_theme.css" />
-    <link rel="stylesheet" type="text/css" href="css/themes/tj_theme_custom.css" />
-    <link rel="stylesheet" type="text/css" href="css/mobipick.css" />
 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        // The element that is fluid width
+          $fluidEl = $("body");
 
-    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
-    <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
 
-    <script>
-        $(document).on("mobileinit", function () {
-            $.mobile.hashListeningEnabled = false;
-            $.mobile.pushStateEnabled = false;
-            $.mobile.changePage.defaults.changeHash = false;
-            $.mobile.ignoreContentEnabled = true;
+        // Figure out and save aspect ratio for each video
+        $('.videos iframe').each(function() {
+
+          $(this)
+            .data('aspectRatio', this.height / this.width)
+
+            // and remove the hard coded width/height
+            .removeAttr('height')
+            .removeAttr('width');
+
         });
-    </script>
-    <link rel="stylesheet" type="text/css" href="main_style.css"/>
 
+        // When the window is resized
+        $(window).resize(function() {
 
-</head>
-<body style="-webkit-transform: translateZ(0px);" data-tap-toggle="false" data-position="fixed">
+          var newWidth = $fluidEl.width();
 
-<div hidden data-role="main" class="ui-content" style="padding:0px 0px 0px 0px;">
-    <div class="iframe_scrollee">
-        <iframe name="iframe" id="iframe_video" src="https://www.turbojet.com.hk/tc/mobvideo.aspx?v=20230814144028?rand=7176430" style="border: 0; width:100%; height:100%; background-color:white;" sandbox="allow-same-origin allow-popups allow-forms allow-top-navigation allow-scripts">
-            Your browser doesn't support iframes.
-        </iframe>
-    </div>
-</div>
+          // Resize all videos according to their own aspect ratio
+          $('.videos iframe').each(function() {
 
-<video id="my-video" class="video-js" controls preload="auto" width="100%" height="264" data-setup='{}'>
-    <source src="tb7.mp4" type="video/mp4">
-</video>
-<p> Turbojet promote  https://www.turbojet.com.hk/tc/mobvideo.aspx?v=20230814144028?rand=7176430</p>
-</body>
+            var $el = $(this);
+            $el
+              .width(newWidth)
+              .height(newWidth * $el.data('aspectRatio'));
+
+          });
+
+        // Kick off one resize to fix all videos on page load
+        }).resize();
+
+    });
+
+      $('.videos a').on("click", function( event ) {
+              alert( "The link will no longer work" );
+              event.preventDefault();
+          });
+
+   </script>
+
+    <body>
+
+        <div class="Content">
+            <div class="Page_Title">
+                <h3>宣傳短片</h3>
+            </div>
+            <div class="videos">
+                <p><a href="https://www.youtube.com/embed/0xuB3xrkj9I">噴射飛航至尊噴射船「尊豪位」服務介紹</a></p>
+            </div>
+        </div>
+        <video id="my-video" class="video-js" controls preload="auto" autoplay width="100%" height="264" data-setup='{}'>
+            <source src="tb7.mp4" type="video/mp4">
+        </video>
+        <p> Turbojet promote  https://www.turbojet.com.hk/tc/mobvideo.aspx?v=20230814144028?rand=7176430</p>
+    </body>
 </html>
+
+
+
+
+

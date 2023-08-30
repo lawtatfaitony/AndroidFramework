@@ -34,13 +34,17 @@
         android:label="@string/about"
         tools:layout="@layout/fragment_about" />
     <fragment
-        android:id="@+id/fragmentBluePage"
+        android:id="@+id/nav_fragment_blue_page"
         android:name="com.example.myapplication.ui.gallery.BluePageFragment"
-        android:label="fragment_blue_page" />
+        android:label="fragment_blue_page"
+        tools:layout="@layout/fragment_blue_page" />
     <fragment
-        android:id="@+id/fragmentGreenPage"
+        android:id="@+id/nav_fragment_green_page"
         android:name="com.example.myapplication.ui.gallery.GreenPageFragment"
-        android:label="fragment_green_page" />
+        android:label="fragment_green_page"
+        tools:layout="@layout/fragment_green_page" >
+
+    </fragment>
 
 
 </navigation>

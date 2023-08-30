@@ -26,16 +26,13 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_gallery">
-
+            <!--改用 activity_main_and_sub_menu.xml-->
             <menu>
                 <group android:checkableBehavior = "none">
-                    <item android:id="@+id/colour_blue" android:icon="@drawable/ic_menu_camera" android:title="蓝色"/>
-                    <item android:id="@+id/colour_green" android:icon="@drawable/ic_menu_camera" android:title="绿色"/>
+                    <item android:id="@+id/nav_fragment_blue_page" android:icon="@drawable/ic_menu_camera" android:title="蓝色"/>
+                    <item android:id="@+id/nav_fragment_green_page" android:icon="@drawable/ic_menu_camera" android:title="绿色"/>
                     <item android:id="@+id/colour_red" android:icon="@drawable/ic_menu_camera" android:title="红色"/>
-                    <item
-                        android:id="@+id/aboutFragment"
-                        android:icon="@drawable/ic_menu_camera"
-                        android:title="@string/about"  />
+                    <item  android:id="@+id/nav_about"   android:icon="@drawable/ic_menu_camera"  android:title="@string/about"  />
                 </group>
             </menu>
 

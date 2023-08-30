@@ -38,7 +38,7 @@
     <string name="text_content">這是內容顯示區域</string>
     <string name="select_language">選擇一種語言</string>
     <string name="Follow_the_system">跟隨系統</string>
-    <string name="menu_lang_setting">系統設置</string>
+    <string name="menu_lang_setting">語言設置</string>
     <string name="menu_home_login">Login</string>
     <string name="input_cloud_url">Cloud Url/</string>
     <string name="input_cloud_url_tips">請輸入雲端URL</string>

@@ -61,7 +61,6 @@ public class BaseActivity extends AppCompatActivity {
             if(intent.getStringExtra("msg").equals("EVENT_REFRESH_LANGUAGE")){
                 changeAppLanguage();
                 recreate();//刷新界面
-
             }
         }
     };

@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="8dp"
     tools:context=".ui.about.AboutFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,17 +14,18 @@
     <TextView
         android:id="@+id/text_about"
         android:layout_width="match_parent"
-        android:text = "this is blank fragment"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal"
+        android:text="this is blank fragment"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:gravity="center_horizontal" />
+        android:textSize="20sp" />
 
     <WebView
         android:id="@+id/webView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    android:layout_marginTop="8dp"
+
 </FrameLayout>

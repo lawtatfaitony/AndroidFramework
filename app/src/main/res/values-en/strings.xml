@@ -26,7 +26,7 @@
     <string name="lan_zh_rTYW">Chinese Traditional</string>
     <string name="lan_zh_HK">Chinese Traditional</string>
     <string name="Follow_the_system">Follow the system</string>
-    <string name="menu_lang_setting">System Setting</string>
+    <string name="menu_lang_setting">Language Setting</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

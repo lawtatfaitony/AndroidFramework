@@ -50,3 +50,29 @@ protected void onCreate(Bundle savedInstanceState) {
     }
 
 ```
+
+https://blog.csdn.net/weixin_41659488/article/details/84450377  android:获取onCreateContextMenu（上下文菜单） 选项的方法
+
+另一種方式是偵聽事件：
+
+先繼承偵聽類：public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+
+然後重寫：
+
+```
+@Override
+public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+    switch (menuItem.getItemId()) {
+        case R.id.nav_system_setting:
+            // 處理系統設置菜單項目的操作
+            return true;
+        case R.id.nav_about:
+            // 處理用戶設置菜單項目的操作
+            return true;
+        default:
+            return super.onOptionsItemSelected(menuItem);
+    }
+}
+```
+
+跳轉的最簡易方法：

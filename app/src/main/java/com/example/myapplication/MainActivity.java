@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.myapplication.language.LanguageUtils;
 import com.example.myapplication.ui.gallery.GreenPageFragment;
+import com.example.myapplication.ui.home.ui.login.LoginFragment;
+import com.example.myapplication.ui.setting.SettingFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -35,7 +37,7 @@ import java.lang.reflect.Method;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private AppBarConfiguration mAppBarConfiguration;
-
+    private NavController navController ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,14 +57,12 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_about,R.id.nav_system_setting)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_about,R.id.nav_system_setting,R.id.nav_fragment_green_page,R.id.nav_fragment_blue_page)
                 .setDrawerLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-
     }
 
     /**
@@ -108,12 +108,36 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // 開始 Fragment 事務
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                Toast.makeText(this, "Click the first menu item", Toast.LENGTH_SHORT).show();
+            case R.id.action_login:
+                //跳轉到login
+//                LoginFragment myLoginFragment = new LoginFragment();
+////                // 將 Fragment 添加到 Activity 中
+////                // 請注意，R.id.fragment_container（R.id.drawer_layout） 是指定要添加 Fragment 的佈局的 ID。請確保您的 Activity 佈局中包含具有此 ID 的佈局。
+////                fragmentTransaction.add(R.id.drawer_layout, myLoginFragment);
+////                fragmentTransaction.commit();
+                Toast.makeText(this, "Login", Toast.LENGTH_SHORT).show();
+                navController.navigate(R.id.nav_home_login);
+
                 break;
+            case R.id.action_settings:
+                Toast.makeText(this, "Setting", Toast.LENGTH_SHORT).show();
+//                //跳转到 SettingFragment (这个语法是导致View重叠在一起)
+//                // 創建 Fragment 實例
+//                SettingFragment mySettingFragment = new SettingFragment();
+//                // 將 Fragment 添加到 Activity 中
+//                fragmentTransaction.add(R.id.drawer_layout, mySettingFragment);
+//                fragmentTransaction.commit();
+
+                navController.navigate(R.id.nav_system_setting);
+                break;
+            //選擇一種語
             case R.id.lang_settings:
-                Toast.makeText(this, "Click the second menu item", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "language setting", Toast.LENGTH_SHORT).show();
                 // 在這裡處理按鈕點擊事件
                 final String[] cities = {getString(R.string.lan_chinese), getString(R.string.lan_en),getString(R.string.lan_zh_HK),getString(R.string.Follow_the_system)};
                 final String[] locals = LanguageUtils.locals; //{"zh-CN", "en","zh-HK","111"};
@@ -134,17 +158,16 @@ public class MainActivity extends AppCompatActivity {
                 }).setIcon(R.mipmap.ic_launcher_logo_round);
                 builder.show();
                 break;
-            case R.id.menu_item_green:
-                break;
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 
 }
