@@ -1,3 +1,5 @@
+***目標：基礎框架，功能包括NAVIGATOR跳轉；多語言；登錄***
+
 ```
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,3 +78,4 @@ public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 ```
 
 跳轉的最簡易方法：
+
