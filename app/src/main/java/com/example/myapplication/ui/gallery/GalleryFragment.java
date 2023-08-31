@@ -14,6 +14,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
 
+
+//澳門海上游的購票
 public class GalleryFragment extends Fragment {
 
     private GalleryViewModel galleryViewModel;

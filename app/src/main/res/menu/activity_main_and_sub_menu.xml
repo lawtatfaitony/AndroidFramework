@@ -32,7 +32,7 @@
                 <group android:checkableBehavior = "none">
                     <item android:id="@+id/nav_fragment_blue_page" android:title="蓝色" android:icon="@drawable/ic_menu_camera" />
                     <item android:id="@+id/nav_fragment_green_page" android:title="绿色"  android:icon="@drawable/ic_menu_camera" />
-                    <item android:id="@+id/colour_red" android:title="红色"  android:icon="@drawable/ic_menu_camera" />
+                    <item android:id="@+id/nav_maps_fragment" android:title="Google Map"  android:icon="@drawable/ic_menu_camera" />
                     <item android:id="@+id/nav_about"  android:title="@string/about"   android:icon="@drawable/ic_menu_camera" />
                 </group>
             </menu>

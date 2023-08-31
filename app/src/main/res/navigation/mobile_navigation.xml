@@ -45,6 +45,11 @@
         tools:layout="@layout/fragment_green_page" >
 
     </fragment>
+    <fragment
+        android:id="@+id/nav_maps_fragment"
+        android:name="com.example.myapplication.ui.home.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 
 
 </navigation>

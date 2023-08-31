@@ -13,6 +13,7 @@
     <string name="return1">return</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_low_button_text">購票</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
