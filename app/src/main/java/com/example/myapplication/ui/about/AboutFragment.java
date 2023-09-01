@@ -3,6 +3,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
@@ -94,12 +95,12 @@ public class AboutFragment extends Fragment {
         // 獲取應用程式的 Context
         Context context = requireContext().getApplicationContext();
         // 獲取按鈕的引用
-        LinearLayout linearLayout = root.findViewById(R.id.linearLayout_about);
-        final WebView webView1 = linearLayout.findViewById(R.id.webView1);
+//        ConstraintLayout linearLayout = root.findViewById(R.id.linearLayout_about);
+        final WebView webView1 = (WebView) root.findViewById(R.id.webView1);
         //加載about us url
         webView1.loadUrl(Config.MACAO_ABOUT);
-        // 設置 WebView 的佈局參數
-        webView1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT,1));
+//        // 設置 WebView 的佈局參數
+//        webView1.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT,1));
         //Button btnStartToBuy =  webView1.findViewById(R.id.btn_I_know_start_to_buy);// Button btnStartToBuy = requireView().findViewById(R.id.btn_I_know_start_to_buy); // root.findViewById(R.id.btn_I_know_start_to_buy);
         Button btnStartToBuy = root.findViewById(R.id.btn_I_know_start_to_buy);
         //btnStartToBuy.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT,0));
@@ -123,17 +124,17 @@ public class AboutFragment extends Fragment {
                 Toast.makeText(getContext().getApplicationContext(), "AboutFragment btnStartToBuy", Toast.LENGTH_LONG).show();
                 // 在這裡添加點擊事件的處理邏輯
                 //Method I
-                // 獲取 NavController
-//                navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
-//                // 導航到目標 Fragment
-//                navController.navigate(R.id.nav_gallery);
+//                 獲取 NavController
+                navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+                // 導航到目標 Fragment
+                navController.navigate(R.id.nav_gallery);
                 //Method II
-                GalleryFragment galleryFragment = new GalleryFragment();
-                // 使用 getChildFragmentManager() 替換當前的 Fragment
-                getChildFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, galleryFragment)
-                        .addToBackStack(null)
-                        .commit();
+//                GalleryFragment galleryFragment = new GalleryFragment();
+//                // 使用 getChildFragmentManager() 替換當前的 Fragment
+//                getChildFragmentManager().beginTransaction()
+//                        .replace(R.id.fragment_container, galleryFragment)
+//                        .addToBackStack(null)
+//                        .commit();
             }
         });
         return root;

@@ -2,7 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
+<!--自動導航： android:id必須要與Mobile_Navigation中定義的android:id要一致才能啟用自動導航的.
+例如：當前的文檔 android:id="@+id/nav_home" 必須在Mobile_Navigation.xml要一致。
+-->
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_extend_home"
