@@ -7,10 +7,16 @@
         <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/drawable/custom_button_about.xml" value="0.14270833333333333" />
         <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/drawable/ic_edit_text_bg.xml" value="0.14270833333333333" />
         <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14270833333333333" />
+        <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/drawable/ic_launcher_logo_background.xml" value="0.14270833333333333" />
         <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/drawable/ic_launcher_logo_foreground.xml" value="0.14270833333333333" />
         <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/layout/content_main.xml" value="0.12291666666666666" />
         <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/layout/fragment_about.xml" value="0.17572463768115942" />
         <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
+        <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/layout/fragment_login.xml" value="0.1265625" />
+        <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/layout/fragment_maps.xml" value="0.1265625" />
+        <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/layout/fragment_setting.xml" value="0.1265625" />
+        <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/layout/fragment_slideshow.xml" value="0.1265625" />
+        <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/layout/nav_header_main.xml" value="0.1265625" />
         <entry key="..\:/ANDROID_LEARN/AndroidFramework/AndroidFramework/app/src/main/res/menu/activity_main_and_sub_menu.xml" value="0.24947916666666667" />
         <entry key="..\:/AndroidABC/newApp0809/app/src/main/res/layout/fragment_setting.xml" value="0.1265625" />
         <entry key="..\:/AndroidABC/newApp0809/app/src/main/res/menu/activity_main_drawer.xml" value="0.1265625" />
