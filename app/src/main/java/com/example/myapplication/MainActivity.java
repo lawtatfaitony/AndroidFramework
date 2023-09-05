@@ -17,6 +17,12 @@ import com.example.myapplication.language.LanguageUtils;
 import com.example.myapplication.ui.gallery.GreenPageFragment;
 import com.example.myapplication.ui.home.ui.login.LoginFragment;
 import com.example.myapplication.ui.setting.SettingFragment;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -34,7 +40,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import java.lang.reflect.Method;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     private static final String TAG = "MainActivity";
     private AppBarConfiguration mAppBarConfiguration;
     private NavController navController ;
@@ -64,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
-
     /**
      * right-top-menu
      * @param menu
@@ -168,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 
 
 }

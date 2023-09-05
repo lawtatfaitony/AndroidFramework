@@ -32,9 +32,41 @@ public class MapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            LatLng sydney = new LatLng(-34, 151);
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+
+            // 創建一個 LatLng 對象，表示標記的位置
+            LatLng sydney = new LatLng(-35, 152);
+            // 創建一個 MarkerOptions 對象，表示標記的屬性
+            MarkerOptions markerSydneyOptions = new MarkerOptions()
+                    .position(sydney)
+                    .title("Sydney");
+            // 在地圖上添加標記
+            googleMap.addMarker(markerSydneyOptions);
+            // 將地圖移動到標記的位置
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+            try {
+                Thread.sleep(6000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            // 創建一個 LatLng 對象，表示標記的位置
+            LatLng hongKong = new LatLng(22.2964, 114.1747);
+            // 創建一個 MarkerOptions 對象，表示標記的屬性
+            MarkerOptions markerOptions = new MarkerOptions()
+                    .position(hongKong)
+                    .title("Hong Kong Tsim Sha Tsui");
+            // 在地圖上添加標記
+            googleMap.addMarker(markerOptions);
+            // 將地圖移動到標記的位置
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(hongKong));
+
+            // 將地圖縮放到指定的級別
+            googleMap.moveCamera(CameraUpdateFactory.zoomTo(17));
+            // 獲取當前的縮放級別
+            float zoomLevel = googleMap.getCameraPosition().zoom;
+            // 將地圖放大三級
+            googleMap.animateCamera(CameraUpdateFactory.zoomTo(zoomLevel + 13));
         }
     };
 

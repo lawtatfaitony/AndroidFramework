@@ -48,7 +48,8 @@
     <fragment
         android:id="@+id/nav_maps_fragment"
         android:name="com.example.myapplication.ui.home.MapsFragment"
-        android:label="fragment_maps"
+        android:label="nav_maps_fragment"
+        android:title="Google Map"
         tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/nav_gallery"

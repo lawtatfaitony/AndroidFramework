@@ -79,3 +79,22 @@ public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
 跳轉的最簡易方法：
 
+```scala
+public class MapsActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maps);
+
+        FragmentManager myFragmentManager = getSupportFragmentManager();
+        SupportMapFragment mapFragment = (SupportMapFragment) myFragmentManager.findFragmentById(R.id.map);
+        GoogleMap mMap = mapFragment.getMap();
+
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(-35, 152);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker near Sidney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+}
+```
