@@ -44,11 +44,7 @@ public class MapsFragment extends Fragment {
             // 將地圖移動到標記的位置
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-            try {
-                Thread.sleep(6000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
 
             // 創建一個 LatLng 對象，表示標記的位置
             LatLng hongKong = new LatLng(22.2964, 114.1747);
@@ -62,11 +58,16 @@ public class MapsFragment extends Fragment {
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(hongKong));
 
             // 將地圖縮放到指定的級別
-            googleMap.moveCamera(CameraUpdateFactory.zoomTo(17));
+            googleMap.moveCamera(CameraUpdateFactory.zoomTo(6));
             // 獲取當前的縮放級別
             float zoomLevel = googleMap.getCameraPosition().zoom;
-            // 將地圖放大三級
-            googleMap.animateCamera(CameraUpdateFactory.zoomTo(zoomLevel + 13));
+            //將地圖放大3級
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            googleMap.animateCamera(CameraUpdateFactory.zoomTo(zoomLevel + 9));
         }
     };
 

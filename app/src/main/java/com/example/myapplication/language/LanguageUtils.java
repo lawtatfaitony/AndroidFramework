@@ -107,7 +107,7 @@ public class LanguageUtils {
     }
 
     /**
-     * 获取当前支持语言，不支持默认英文  TODO  新增华为
+     * 获取当前支持语言，不支持默认英文  TODO  新增HW
      * @return
      */
     public static String getCurrentLanguage() {

@@ -98,3 +98,7 @@ public class MapsActivity extends AppCompatActivity {
     }
 }
 ```
+
+https://stackoverflow.com/questions/72898494/cordova-build-failed-with-aapt2-unknown-chunk-type-200
+
+upgrade gradle plugin. I upgrade compileSdkVersion to 34 , And show those error, So I upgrade gradle plugin to 7.3.1, the error resolved

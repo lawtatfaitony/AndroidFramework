@@ -12,7 +12,7 @@
         android:background="@color/colorPrimary"
         android:text="澳门海上游"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/colorWhite"
         android:textStyle="bold"></TextView>
 
     <RelativeLayout
@@ -184,7 +184,7 @@
         <View
             android:layout_width="1dp"
             android:layout_height="50dp"
-            android:background="@color/divide_color">
+            android:background="@color/colorDivide">
 
         </View>
         <RelativeLayout
@@ -195,7 +195,6 @@
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:src="@drawable/ic_launcher_logo"
-
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp">
 
