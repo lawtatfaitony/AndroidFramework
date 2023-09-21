@@ -1,11 +1,17 @@
 package com.example.myapplication.ui.home;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,11 +27,17 @@ import java.util.Date;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     private HomeViewModel homeViewModel;
     private TextView tv_time;
+    private EditText mEditTextLocation;
+    private RelativeLayout rLayout;
+    private MapView mapView;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
@@ -41,6 +53,29 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        rLayout  = (RelativeLayout)root.findViewById(R.id.rl_edit_location);
+        mEditTextLocation = root.findViewById(R.id.edit_location);
+        mEditTextLocation.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_GO) {
+                    // 獲取輸入的網址
+                    String url = mEditTextLocation.getText().toString();
+                    // 跳轉到網頁
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+        mapView = (MapView) root.findViewById(R.id.mapView);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
+
         return root;
     }
 
@@ -74,6 +109,7 @@ public class HomeFragment extends Fragment {
         TimePickerView pvTime = new TimePickerBuilder(getActivity(), new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
+                //tv_time.setText(DateUtil.getTime(date, "yyyy年MM月dd日hhxiaomm-ss"));
                 tv_time.setText(DateUtil.getTime(date, "yyyy年MM月dd日hhxiaomm-ss"));
             }
         })
@@ -81,5 +117,10 @@ public class HomeFragment extends Fragment {
         .setType(new boolean[]{true, true, true, true, true, true})// 默认全部显示
         .build();
         pvTime.show();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        Toast.makeText(getContext().getApplicationContext(), "GoogleMap onMapReady", Toast.LENGTH_LONG).show();
     }
 }

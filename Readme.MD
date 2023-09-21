@@ -1,3 +1,11 @@
+https://blog.csdn.net/albb_/article/details/89704277
+
+#### Gradle问题: AAPT2 error和"aapt.exe'' finished with non-zero exit value 1或者AAPT2与Robelectric不兼容
+
+# 詳盡描述如何解決高版本Graddle/SDK所出現的 AATP2 ERROR問題
+
+
+
 ***目標：基礎框架，功能包括NAVIGATOR跳轉；多語言；登錄***
 
 ```
@@ -102,3 +110,104 @@ public class MapsActivity extends AppCompatActivity {
 https://stackoverflow.com/questions/72898494/cordova-build-failed-with-aapt2-unknown-chunk-type-200
 
 upgrade gradle plugin. I upgrade compileSdkVersion to 34 , And show those error, So I upgrade gradle plugin to 7.3.1, the error resolved
+
+# **Android圖標資源**
+
+https://fonts.google.com/icons?selected=Material+Icons:class:&icon.platform=android
+
+Google MapView 的用法：
+
+第一步：
+
+dependencies {
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+}
+
+第二步：
+
+<com.google.android.gms.maps.MapView
+    android:id="@+id/mapView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+
+第三步：
+
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    private GoogleMap mMap;
+    private MapView mMapView;
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_maps);
+    
+            mMapView = (MapView) findViewById(R.id.mapView);
+            mMapView.onCreate(savedInstanceState);
+            mMapView.getMapAsync(this);
+        }
+    
+        @Override
+        public void onMapReady(GoogleMap googleMap) {
+            mMap = googleMap;
+            // 在這裡添加您的地圖代碼
+        }
+    
+        @Override
+        public void onResume() {
+            super.onResume();
+            mMapView.onResume();
+        }
+    
+        @Override
+        public void onPause() {
+            super.onPause();
+            mMapView.onPause();
+        }
+    
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+            mMapView.onDestroy();
+        }
+    
+        @Override
+        public void onLowMemory() {
+            super.onLowMemory();
+            mMapView.onLowMemory();
+        }
+    }
+### EditText 接收來自web的文字
+
+`<Ed`itTextandroid:id="@+id/editText"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="請輸入網址"
+android:inputType="textWebEditText" />`
+
+public class MainActivity extends AppCompatActivity {
+
+    private EditText mEditText;
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    
+        mEditText = findViewById(R.id.editText);
+        mEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_GO) {
+                    // 獲取輸入的網址
+                    String url = mEditText.getText().toString();
+                    // 跳轉到網頁
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
+            }
+        });
+      }
+    }

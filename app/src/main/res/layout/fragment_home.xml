@@ -6,16 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
     android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/colorPrimary"
-        android:text="澳门海上游"
         android:gravity="center"
-        android:textColor="@color/colorWhite"
+        android:text="澳門海上游"
+        android:textColor="@android:color/primary_text_dark"
+        android:textSize="22dp"
         android:textStyle="bold"></TextView>
 
     <RelativeLayout
+        android:id="@+id/rl_assigned_schedule"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
@@ -24,21 +27,24 @@
         android:background="@drawable/box_bg"
         tools:ignore="MissingConstraints">
         <ImageView
+            android:id="@+id/assigned_sch_img_start"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:src="@drawable/ic_launcher_logo"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            ></ImageView>
+            android:layout_marginLeft="15dp">
+
+        </ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="指定航班罩程票">
+            android:text="指定航班船票">
 
         </TextView>
         <ImageView
+            android:id="@+id/assigned_sch_img_end"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:src="@drawable/ic_launcher_logo"
@@ -49,6 +55,7 @@
 
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_address"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
@@ -56,32 +63,35 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/box_bg"
         tools:ignore="MissingConstraints">
-        <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:src="@drawable/ic_launcher_logo"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            ></ImageView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="地点">
 
-        </TextView>
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:src="@drawable/ic_launcher_logo"
+            android:id="@+id/rl_img_view_address"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:layout_alignParentRight="true"
-            ></ImageView>
+            android:layout_marginLeft="10dp"
+            android:longClickable="true"
+            android:src="@drawable/baseline_home_work_24"></ImageView>
+
+        <EditText
+            android:id="@+id/edit_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignStart="@+id/rl_img_view_address"
+            android:layout_alignLeft="@+id/rl_img_view_address"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="10dp"
+            android:hint="@string/prompt_address"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:requiresFadingEdge="none"
+            android:background="@null"
+            android:selectAllOnFocus="true" />
 
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_date"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
@@ -113,6 +123,7 @@
             ></ImageView>
 
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/rl_time"
         android:layout_width="match_parent"
@@ -135,7 +146,7 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="时间">
+            android:text="時間">
 
         </TextView>
         <ImageView
@@ -162,55 +173,93 @@
             android:layout_weight="2"
             android:layout_height="50dp">
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/ic_launcher_logo"
-
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_calendar_month_24"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp">
-
             </ImageView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="100dp">
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/colorPrimary"
+                android:text="DATE">
 
             </TextView>
-
-
         </RelativeLayout>
         <View
             android:layout_width="1dp"
             android:layout_height="50dp"
             android:background="@color/colorDivide">
-
         </View>
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_weight="3"
             android:layout_height="50dp">
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/ic_launcher_logo"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_schedule_24"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp">
 
             </ImageView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="HK$60"
-                android:textColor="@color/colorPrimary"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="100dp">
+                android:layout_marginLeft="50dp"
+                android:text="TIME"
+                android:textColor="@color/colorPrimary">
 
             </TextView>
         </RelativeLayout>
-
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_edit_location"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/box_bg"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/rl_img_view_location"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:longClickable="true"
+            android:src="@drawable/baseline_location_on_24"></ImageView>
+
+        <EditText
+            android:id="@+id/edit_location"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignStart="@+id/rl_img_view_location"
+            android:layout_alignLeft="@+id/rl_img_view_location"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="10dp"
+            android:hint="@string/prompt_address"
+            android:inputType="textWebEditText"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:requiresFadingEdge="none"
+            android:background="@null"
+            android:selectAllOnFocus="true" />
+    </RelativeLayout>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <TextView
         android:id = "@+id/text_home"
         android:layout_width="wrap_content"

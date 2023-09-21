@@ -43,4 +43,6 @@
     <string name="input_cloud_url">Cloud Url/</string>
     <string name="input_cloud_url_tips">Please input the Cloud Url</string>
 
+    <!--home-->
+    <string name="prompt_address">Address</string>
 </resources>

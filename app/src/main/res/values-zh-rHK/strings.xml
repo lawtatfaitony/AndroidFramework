@@ -44,4 +44,6 @@
     <string name="input_cloud_url">Cloud Url/</string>
     <string name="input_cloud_url_tips">請輸入雲端URL</string>
 
+    <!--home-->
+    <string name="prompt_address">地點</string>
 </resources>
