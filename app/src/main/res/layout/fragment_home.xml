@@ -35,14 +35,14 @@
             android:layout_marginLeft="15dp">
 
         </ImageView>
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:text="指定航班船票">
 
-        </TextView>
+        </EditText>
         <ImageView
             android:id="@+id/assigned_sch_img_end"
             android:layout_width="15dp"
@@ -69,7 +69,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="15dp"
             android:longClickable="true"
             android:src="@drawable/baseline_home_work_24"></ImageView>
 
@@ -90,6 +90,7 @@
             android:selectAllOnFocus="true" />
 
     </RelativeLayout>
+    <!--date-->
     <RelativeLayout
         android:id="@+id/rl_date"
         android:layout_width="match_parent"
@@ -100,30 +101,31 @@
         android:background="@drawable/box_bg"
         tools:ignore="MissingConstraints">
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:src="@drawable/ic_launcher_logo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_calendar_month_24"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
             ></ImageView>
-        <TextView
+
+        <EditText
+            android:id="@+id/edit_date"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="日期">
-        </TextView>
+            android:hint="日期"></EditText>
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:src="@drawable/ic_launcher_logo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_calendar_month_24"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:layout_alignParentRight="true"
             ></ImageView>
 
     </RelativeLayout>
-
+    <!--time-->
     <RelativeLayout
         android:id="@+id/rl_time"
         android:layout_width="match_parent"
@@ -134,32 +136,34 @@
         android:background="@drawable/box_bg"
         tools:ignore="MissingConstraints">
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:src="@drawable/ic_launcher_logo"
+            android:id="@+id/rl_img_view_left_time"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_schedule_24"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
             ></ImageView>
-        <TextView
+        <EditText
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="時間">
-
-        </TextView>
+            android:hint="日期時間">
+        </EditText>
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:src="@drawable/ic_launcher_logo"
+            android:id="@+id/rl_img_view_righttime"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_schedule_24"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:layout_alignParentRight="true"
             ></ImageView>
-
     </RelativeLayout>
+    <!--date and time-->
     <LinearLayout
+        android:id="@+id/ll_date_and_time"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
@@ -169,6 +173,7 @@
         android:orientation="horizontal"
         tools:ignore="MissingConstraints">
         <RelativeLayout
+            android:id="@+id/rl_date_and_time"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="50dp">
@@ -180,15 +185,16 @@
                 android:layout_marginLeft="15dp">
             </ImageView>
 
-            <TextView
+            <EditText
+                android:id="@+id/row_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="50dp"
-                android:textColor="@color/colorPrimary"
-                android:text="DATE">
+                android:hint="DATE"
+                android:textColor="@color/colorPrimary">
 
-            </TextView>
+            </EditText>
         </RelativeLayout>
         <View
             android:layout_width="1dp"
@@ -196,6 +202,7 @@
             android:background="@color/colorDivide">
         </View>
         <RelativeLayout
+            android:id="@+id/rl_date_and_time2"
             android:layout_width="0dp"
             android:layout_weight="3"
             android:layout_height="50dp">
@@ -208,18 +215,18 @@
 
             </ImageView>
 
-            <TextView
+            <EditText
+                android:id="@+id/row_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_marginLeft="50dp"
-                android:text="TIME"
+                android:hint="TIME"
                 android:textColor="@color/colorPrimary">
 
-            </TextView>
+            </EditText>
         </RelativeLayout>
     </LinearLayout>
-
+    <!--location-->
     <RelativeLayout
         android:id="@+id/rl_edit_location"
         android:layout_width="match_parent"
@@ -235,7 +242,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="15dp"
             android:longClickable="true"
             android:src="@drawable/baseline_location_on_24"></ImageView>
 

@@ -7,9 +7,12 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Handler;
+import android.os.IBinder;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+
+import java.util.List;
 
 /**
  * des:軟鍵盤
@@ -39,7 +42,6 @@ public class SoftKeyboardUtils {
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(activity.getWindow().getDecorView(), InputMethodManager.SHOW_FORCED);
     }
-
     /**
      * 强制隐藏软键盘
      *
@@ -53,6 +55,25 @@ public class SoftKeyboardUtils {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 隐藏软键盘(可用于Activity，Fragment)
+     *
+     * viewList 中需要放的是当前界面所有触发软键盘弹出的控件。
+     * 比如一个登陆界面， 有一个账号输入框和一个密码输入框，
+     * 需要隐藏键盘的时候， 就将两个输入框对象放在 viewList 中，
+     * 作为参数传到 hideSoftKeyboard 方法中即可。
+     */
+    public static void hideSoftKeyboard(Context context, List<View> viewList) {
+        if (viewList == null) return;
+
+        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+
+        for (View v : viewList) {
+            inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
     /**
      * 自动关闭软键盘
      * @param activity
@@ -79,7 +100,6 @@ public class SoftKeyboardUtils {
      * @param activity
      * @return
      */
-
     public static boolean isSoftShowing(Activity activity) {
         //获取当屏幕内容的高度
         int screenHeight = activity.getWindow().getDecorView().getHeight();
@@ -112,8 +132,10 @@ public class SoftKeyboardUtils {
             return 0;
         }
     }
-//    软键盘 弹框 ze.zhang  //debug 時候加多一個final就沒紅色
-    public static void popupInputMethodWindow(final View view) {
+    /*
+    * 软键盘 弹框 ze.zhang
+    */
+    public static void popupInputMethodWindow(View view) {
         try {
             //输入框 弹出的时候 软键盘弹出
             new Handler().postDelayed(new Runnable() {
@@ -125,6 +147,26 @@ public class SoftKeyboardUtils {
             }, 200);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    /*
+     * 显示软键盘
+    */
+    public static boolean showSystemKeyBord(Context context, View v) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        return imm.showSoftInput(v, InputMethodManager.SHOW_FORCED);
+    }
+    /**
+     * 如果键盘弹起则隐藏
+     * @param token
+     */
+    public static void hideKeyboard(Context context, IBinder token) {
+        if (token != null) {
+            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm.isActive()) {
+                imm.hideSoftInputFromWindow(token, InputMethodManager.HIDE_NOT_ALWAYS);
+            }
         }
     }
 }

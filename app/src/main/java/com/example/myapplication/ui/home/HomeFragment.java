@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,17 +35,23 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     private HomeViewModel homeViewModel;
-    private TextView tv_time;
+    private EditText tv_time;
+    private EditText edit_date;
+    private EditText row_date;
+    private EditText row_time;
+
     private EditText mEditTextLocation;
     private RelativeLayout rLayout;
     private MapView mapView;
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+
+
+
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         initview(root);  //date-view
-
 
         final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -53,6 +60,8 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 textView.setText(s);
             }
         });
+
+
 
         rLayout  = (RelativeLayout)root.findViewById(R.id.rl_edit_location);
         mEditTextLocation = root.findViewById(R.id.edit_location);
@@ -71,7 +80,6 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             }
         });
 
-
         mapView = (MapView) root.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
@@ -80,17 +88,44 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void initview(View root) {
+        //-------------------------------------------------------------------------------------
+
+        RelativeLayout rl_date = root.findViewById(R.id.rl_date);
+        edit_date = rl_date.findViewById(R.id.edit_date);
+
         RelativeLayout rl_time = root.findViewById(R.id.rl_time);
         tv_time = root.findViewById(R.id.tv_time);
-        rl_time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectStartTime();
-            }
-        });
+
+        LinearLayout ll_date_and_time = root.findViewById(R.id.ll_date_and_time);
+        RelativeLayout rl_date_and_time = ll_date_and_time.findViewById(R.id.rl_date_and_time);
+        RelativeLayout rl_date_and_time2 = ll_date_and_time.findViewById(R.id.rl_date_and_time2);
+        //row_date row_time
+        row_date = rl_date_and_time.findViewById(R.id.row_date);
+        row_time = rl_date_and_time2.findViewById(R.id.row_time);
+        //-------------------------------------------------------------------------------------
+
+
+
         tv_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoftKeyboardUtils.hideSoftKeyboard(getActivity());
+                selectStartTime();
+            }
+        });
+
+        row_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SoftKeyboardUtils.hideSoftKeyboard(getActivity());
+                selectStartTime();
+            }
+        });
+
+        row_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SoftKeyboardUtils.hideSoftKeyboard(getActivity());
                 selectStartTime();
             }
         });
@@ -103,20 +138,54 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         if (SoftKeyboardUtils.isSoftShowing(getActivity())) {
             SoftKeyboardUtils.hideSoftKeyboard(getActivity());
         }
+        Date futureDate = DateUtil.getFuturDate(30);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(futureDate);
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH) + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
         Calendar selectedDate = Calendar.getInstance();
         Calendar endDate = Calendar.getInstance();
-        endDate.set(2200, 12, 31);
+        endDate.set(year, month, day);
         TimePickerView pvTime = new TimePickerBuilder(getActivity(), new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
-                //tv_time.setText(DateUtil.getTime(date, "yyyy年MM月dd日hhxiaomm-ss"));
-                tv_time.setText(DateUtil.getTime(date, "yyyy年MM月dd日hhxiaomm-ss"));
+                SoftKeyboardUtils.hideSoftKeyboard(getActivity());
+                tv_time.setText(DateUtil.getTime(date, "yyyy-MM-dd hh:mm:ss"));
             }
         })
         .setDate(selectedDate)
         .setType(new boolean[]{true, true, true, true, true, true})// 默认全部显示
         .build();
         pvTime.show();
+
+        //row_date
+        TimePickerView pv_row_date = new TimePickerBuilder(getActivity(), new OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {
+                SoftKeyboardUtils.hideSoftKeyboard(getActivity());
+                row_date.setText(DateUtil.getTime(date, "yyyy-MM-dd"));
+            }
+        })
+        .setDate(selectedDate)
+        .setType(new boolean[]{true, true, true, false, false, false})// only yyyy-MM-dd
+        .build();
+        pv_row_date.show();
+
+        //row_time
+        TimePickerView pv_row_time = new TimePickerBuilder(getActivity(), new OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {
+                SoftKeyboardUtils.hideSoftKeyboard(getActivity());
+                row_time.setText(DateUtil.getTime(date, "HH:mm:ss"));
+            }
+        })
+        .setDate(selectedDate)
+        .setType(new boolean[]{false, false, false, true, true, true})// only yyyy-MM-dd
+        .build();
+        pv_row_time.show();
+
     }
 
     @Override
