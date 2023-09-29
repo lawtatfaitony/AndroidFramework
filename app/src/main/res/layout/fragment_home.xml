@@ -7,6 +7,8 @@
     tools:context=".ui.home.HomeFragment"
     android:orientation="vertical">
 
+<!--圖標資源網站：https://fonts.google.com/icons?selected=Material+Icons:class:&icon.platform=android-->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -26,15 +28,18 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/box_bg"
         tools:ignore="MissingConstraints">
+
         <ImageView
             android:id="@+id/assigned_sch_img_start"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:src="@drawable/ic_launcher_logo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp">
+            android:layout_marginLeft="15dp"
+            android:longClickable="true"
+            android:src="@drawable/baseline_airplane_ticket_24">
 
         </ImageView>
+
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -110,7 +115,7 @@
 
         <EditText
             android:id="@+id/edit_date"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:gravity="center"
@@ -145,7 +150,7 @@
             ></ImageView>
         <EditText
             android:id="@+id/tv_time"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:gravity="center"
@@ -175,7 +180,7 @@
         <RelativeLayout
             android:id="@+id/rl_date_and_time"
             android:layout_width="0dp"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:layout_height="50dp">
             <ImageView
                 android:layout_width="30dp"
@@ -187,7 +192,7 @@
 
             <EditText
                 android:id="@+id/row_date"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="50dp"
@@ -204,7 +209,7 @@
         <RelativeLayout
             android:id="@+id/rl_date_and_time2"
             android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:layout_height="50dp">
             <ImageView
                 android:layout_width="30dp"
@@ -217,7 +222,7 @@
 
             <EditText
                 android:id="@+id/row_time"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:hint="TIME"

@@ -54,14 +54,13 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         initview(root);  //date-view
 
         final TextView textView = root.findViewById(R.id.text_home);
+
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
         });
-
-
 
         rLayout  = (RelativeLayout)root.findViewById(R.id.rl_edit_location);
         mEditTextLocation = root.findViewById(R.id.edit_location);
@@ -92,25 +91,97 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
         RelativeLayout rl_date = root.findViewById(R.id.rl_date);
         edit_date = rl_date.findViewById(R.id.edit_date);
-
+        //添加幾個EdtText的focus事件並且關閉軟鍵盤
+        edit_date.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 獲得焦點時執行的操作
+                    try {
+                        Thread.sleep(300); // 單位是毫秒，這裡暫停程式執行 500 毫秒
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (SoftKeyboardUtils.isSoftShowing(getActivity())) {
+                        SoftKeyboardUtils.hideSoftKeyboard(getActivity());
+                    }
+                } else {
+                    // 失去焦點時執行的操作
+                }
+            }
+        });
         RelativeLayout rl_time = root.findViewById(R.id.rl_time);
         tv_time = root.findViewById(R.id.tv_time);
-
+        //添加幾個EdtText的focus事件並且關閉軟鍵盤
+        tv_time.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 獲得焦點時執行的操作
+                    try {
+                        Thread.sleep(300); // 單位是毫秒，這裡暫停程式執行 500 毫秒
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (SoftKeyboardUtils.isSoftShowing(getActivity())) {
+                        SoftKeyboardUtils.hideSoftKeyboard(getActivity());
+                    }
+                } else {
+                    // 失去焦點時執行的操作
+                }
+            }
+        });
         LinearLayout ll_date_and_time = root.findViewById(R.id.ll_date_and_time);
         RelativeLayout rl_date_and_time = ll_date_and_time.findViewById(R.id.rl_date_and_time);
         RelativeLayout rl_date_and_time2 = ll_date_and_time.findViewById(R.id.rl_date_and_time2);
         //row_date row_time
         row_date = rl_date_and_time.findViewById(R.id.row_date);
+        //添加幾個EdtText的focus事件並且關閉軟鍵盤
+        row_date.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 獲得焦點時執行的操作
+                    try {
+                        Thread.sleep(300); // 單位是毫秒，這裡暫停程式執行 500 毫秒
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (SoftKeyboardUtils.isSoftShowing(getActivity())) {
+                        SoftKeyboardUtils.hideSoftKeyboard(getActivity());
+                    }
+                } else {
+                    // 失去焦點時執行的操作
+                }
+            }
+        });
         row_time = rl_date_and_time2.findViewById(R.id.row_time);
+        //添加幾個EdtText的focus事件並且關閉軟鍵盤
+        row_time.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 獲得焦點時執行的操作
+                    try {
+                        Thread.sleep(300); // 單位是毫秒，這裡暫停程式執行 500 毫秒
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (SoftKeyboardUtils.isSoftShowing(getActivity())) {
+                        SoftKeyboardUtils.hideSoftKeyboard(getActivity());
+                    }
+                } else {
+                    // 失去焦點時執行的操作
+                }
+            }
+        });
         //-------------------------------------------------------------------------------------
-
-
 
         tv_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SoftKeyboardUtils.hideSoftKeyboard(getActivity());
-                selectStartTime();
+                selectDateTime();
             }
         });
 
@@ -118,7 +189,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
                 SoftKeyboardUtils.hideSoftKeyboard(getActivity());
-                selectStartTime();
+                selectRowDate();
             }
         });
 
@@ -126,15 +197,15 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
                 SoftKeyboardUtils.hideSoftKeyboard(getActivity());
-                selectStartTime();
+                selectRowTime();
             }
         });
     }
 
     /**
-     * 时间选择器
+     * 时间选择器 DateTime
      */
-    private void selectStartTime() {
+    private void selectDateTime() {
         if (SoftKeyboardUtils.isSoftShowing(getActivity())) {
             SoftKeyboardUtils.hideSoftKeyboard(getActivity());
         }
@@ -159,7 +230,16 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         .setType(new boolean[]{true, true, true, true, true, true})// 默认全部显示
         .build();
         pvTime.show();
+    }
 
+    /**
+     * 时间选择器 row_date
+     */
+    private void selectRowDate() {
+        if (SoftKeyboardUtils.isSoftShowing(getActivity())) {
+            SoftKeyboardUtils.hideSoftKeyboard(getActivity());
+        }
+        Calendar selectedDate = Calendar.getInstance();
         //row_date
         TimePickerView pv_row_date = new TimePickerBuilder(getActivity(), new OnTimeSelectListener() {
             @Override
@@ -172,7 +252,16 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         .setType(new boolean[]{true, true, true, false, false, false})// only yyyy-MM-dd
         .build();
         pv_row_date.show();
+    }
 
+    /**
+     * 时间选择器 row_time
+     */
+    private void selectRowTime() {
+        if (SoftKeyboardUtils.isSoftShowing(getActivity())) {
+            SoftKeyboardUtils.hideSoftKeyboard(getActivity());
+        }
+        Calendar selectedDate = Calendar.getInstance();
         //row_time
         TimePickerView pv_row_time = new TimePickerBuilder(getActivity(), new OnTimeSelectListener() {
             @Override
